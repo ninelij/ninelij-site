@@ -1,0 +1,151 @@
+media:
+  - name: flash-images
+    label: Flash images
+    input: images
+    output: images
+    rename: safe
+    categories: [image]
+
+content:
+  - name: site-settings
+    label: Site settings
+    type: file
+    path: data/site.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: brand
+        label: Brand name
+        type: string
+        required: true
+      - name: pageTitle
+        label: Browser title
+        type: string
+      - name: eyebrow
+        label: Small title
+        type: string
+      - name: heroTitle
+        label: Main title
+        type: text
+        description: Use a new line if you want the title on two lines.
+      - name: heroIntro
+        label: Intro text
+        type: text
+      - name: flashHeading
+        label: Flash section title
+        type: string
+      - name: flashIntro
+        label: Flash section intro
+        type: text
+      - name: customHeading
+        label: Custom section title
+        type: string
+      - name: customText
+        label: Custom section text
+        type: text
+      - name: infoHeading
+        label: Info section title
+        type: string
+      - name: infoText
+        label: Info section text
+        type: text
+      - name: instagramUrl
+        label: Instagram link
+        type: string
+      - name: tallyUrl
+        label: Custom form link
+        type: string
+      - name: bookingUrl
+        label: Booking calendar link
+        type: string
+      - name: depositUrl
+        label: Deposit / Qonto link
+        type: string
+      - name: email
+        label: Contact email
+        type: string
+      - name: footerRight
+        label: Footer text
+        type: string
+
+  - name: flashes
+    label: Flashes
+    type: file
+    path: data/flashes.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: items
+        label: Flash catalogue
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title} · {category}"
+        fields:
+          - name: id
+            label: Reference
+            type: string
+            required: true
+            description: "Example: F001"
+          - name: title
+            label: Flash name
+            type: string
+            required: true
+          - name: category
+            label: Category
+            type: string
+            required: true
+            description: Same spelling = same filter on the website.
+          - name: status
+            label: Status
+            type: select
+            required: true
+            options:
+              values:
+                - Available · One-time
+                - Available · Repeatable
+                - Claimed
+                - Hidden
+          - name: image
+            label: Image
+            type: image
+            required: true
+            options:
+              media: flash-images
+              categories: [image]
+              rename: safe
+          - name: description
+            label: Description
+            type: text
+          - name: note
+            label: Size / placement note
+            type: text
+          - name: sizes
+            label: Sizes & prices
+            type: object
+            list:
+              min: 1
+              collapsible:
+                collapsed: true
+                summary: "{label} · €{price}"
+            fields:
+              - name: label
+                label: Size
+                type: string
+                required: true
+              - name: price
+                label: Price (€)
+                type: number
+                required: true
+                options:
+                  min: 0
+
+settings:
+  hide: true
+  content:
+    merge: true
+  commit:
+    identity: app
