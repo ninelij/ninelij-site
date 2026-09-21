@@ -1,0 +1,46 @@
+{
+  "items": [
+    {
+      "id": "F001",
+      "title": "Pierrot",
+      "category": "Circus",
+      "status": "Available · One-time",
+      "image": "images/pierrot.svg",
+      "description": "A melancholic Pierrot drawn as an original flash.",
+      "note": "Final size can be adjusted slightly depending on placement.",
+      "sizes": [
+        {"label": "8–10 cm", "price": 180},
+        {"label": "12–14 cm", "price": 240},
+        {"label": "16–18 cm", "price": 300}
+      ]
+    },
+    {
+      "id": "F002",
+      "title": "The Wanderer",
+      "category": "Characters",
+      "status": "Available · One-time",
+      "image": "images/wanderer.svg",
+      "description": "An original hand-drawn character flash.",
+      "note": "Final size can be adjusted slightly depending on placement.",
+      "sizes": [
+        {"label": "10 cm", "price": 220},
+        {"label": "15 cm", "price": 280},
+        {"label": "20 cm", "price": 350}
+      ]
+    },
+    {
+      "id": "F003",
+      "title": "Key I",
+      "category": "Keys",
+      "status": "Available · Repeatable",
+      "image": "images/key-01.svg",
+      "description": "A repeatable key motif.",
+      "note": "Final size can be adjusted slightly depending on placement.",
+      "sizes": [
+        {"label": "6 cm", "price": 140},
+        {"label": "9 cm", "price": 170},
+        {"label": "12 cm", "price": 210}
+      ]
+    }
+  ]
+}
